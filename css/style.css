@@ -21,20 +21,9 @@ body {
   height: 300px;
   padding: 20px;
   border-radius: 10px;
-  background-color: #f44336;
+  background-color: #011a12;
 }
-.animation:before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: block;
-  width: 682px;
-  height: 514px;
-  background: url(/images/bg-circuito.svg)
-}
+.animation:before,
 .animation_circuit-mask {
   content: '';
   position: absolute;
@@ -45,7 +34,49 @@ body {
   display: block;
   width: 682px;
   height: 514px;
+}
+.animation:before {
   background: url(/images/bg-circuito.svg)
+}
+.animation_circuit-mask {
+  display: grid;
+  place-items: center;
+  -webkit-mask: url(/images/bg-circuito.svg);
+  mask: url(/images/bg-circuito.svg);
+}
+.animation_circuit-mask::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid rgb(3, 182, 3);
+  animation: onda_bg 4s infinite;
+}
+@keyframes onda_bg {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(8);
+  }
+}
+.pfp {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+td {
+  padding: 20px;
+  vertical-align: top;
+  border-radius: 10px;
 }
 a:link {
   color: green;
